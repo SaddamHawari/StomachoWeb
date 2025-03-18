@@ -1,0 +1,88 @@
+﻿@model MenuVM
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-body p-4">
+        <form method="post" enctype="multipart/form-data">
+            <input asp-for="MenuItem.Id" hidden />
+            <input asp-for="MenuItem.ImageUrl" hidden />
+                    <div class="row pb-2 ml-3">
+                        <h2 class="text-black">
+                            @(Model.MenuItem.Id != 0 ? "Update" : "Create") Menu Items
+                        </h2>
+                    </div>
+            <div class="border p-3 mt-4">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="form-floating py-2 col-12">
+                            <label asp-for="MenuItem.Name" class="ms-2"></label>
+                            <input asp-for="MenuItem.Name" class="form-control border-0 shadow" />
+                            <span asp-validation-for="MenuItem.Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <label asp-for="MenuItem.Description" class="ms-2 text-muted"></label>
+                            <textarea asp-for="MenuItem.Description" class="form-control border-0 shadow"></textarea>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <label asp-for="MenuItem.Price" class="ms-2"></label>
+                            <input asp-for="MenuItem.Price" class="form-control border-0 shadow" />
+                            <span asp-validation-for="MenuItem.Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <label asp-for="MenuItem.ImageUrl" class="ms-2"></label>
+                            <input type="file" name="file" class="form-control border-0 shadow" />
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <label asp-for="MenuItem.IsAvailable" class="ms-2"></label>
+                            <input asp-for="MenuItem.IsAvailable" class="form-check-inline border-1 shadow" />
+                            <span asp-validation-for="MenuItem.IsAvailable" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating py-2 col-12">
+                            <label asp-for="MenuItem.RestaurantId" class="ms-2"></label>
+                            <select asp-for="MenuItem.RestaurantId" asp-items="@Model.RestaurantList" class="select-contain-select">
+                                <option>--Select Restaurant--</option>
+                            </select>
+                            <span asp-validation-for="MenuItem.RestaurantId" class="text-danger"></span>
+                        </div>
+                        <div class="row pt-2">
+                            <div class="col-6 col-md-3">
+                                @if (Model.MenuItem.Id != 0)
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Update</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" class="btn btn-primary form-control">Create</button>
+                                }
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a asp-controller="MenuItem" asp-action="Index" class="btn btn-outline-primary border  form-control">
+                                    Back to List
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <img src="@Model.MenuItem.ImageUrl" width="100%"
+                             style="border-radius:5px; border:1px solid #bbb9b9" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: [
+            // Core editing features
+            'anchor', 'autolink', 'charmap', 'codesample', 'emoticons','lists','table', 'visualblocks', 'wordcount',
+            ],
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | align lineheight',
+        });
+    </script>
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

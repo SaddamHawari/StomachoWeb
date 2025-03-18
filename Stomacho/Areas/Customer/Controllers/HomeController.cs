@@ -2,8 +2,8 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Stomacho.Models;
 
-namespace Stomacho.Controllers;
-
+namespace Stomacho.Areas.Customer.Controllers;
+[Area("Customer")]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

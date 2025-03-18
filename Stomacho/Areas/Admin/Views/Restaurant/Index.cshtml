@@ -1,0 +1,55 @@
+﻿@model List<Restaurant>
+
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h1 class="text-primary">Restaurant List</h1>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-controller="Restaurant" asp-action="Create" class="btn btn-primary">
+                <i class="las la-plus-circle"></i> Add Restaurant
+            </a>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Cuisine</th>
+                <th>Location</th>
+                <th>Image</th>
+                <th>Active Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td>@obj.Name</td>
+                    <td>@obj.Cuisine</td>
+                    <td>@obj.Location</td>
+                    <td>
+                        <img src="@obj.ImageUrl" alt="Restaurant Image" class="img-thumbnail" style="width: 80px; height: 50px;" />
+                    </td>
+                    <td>
+                        <span class="badge @(obj.IsActive ? "badge-success" : "badge-danger")">
+                            @(obj.IsActive ? "Active" : "Inactive")
+                        </span>
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-controller="Restaurant" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-sm btn-primary mx-1">
+                                <i class="lar la-edit"></i> Edit
+                            </a>
+                            <a asp-controller="Restaurant" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-sm btn-danger mx-1">
+                                <i class="las la-trash-alt"></i> Delete
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

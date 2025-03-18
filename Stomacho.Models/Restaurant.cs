@@ -14,6 +14,7 @@ namespace Stomacho.Models
 
         [Required]
         [MaxLength(100)]
+        [Display(Name = "Restaurant Name")]
         public string Name { get; set; }
 
         [Required]
@@ -24,12 +25,12 @@ namespace Stomacho.Models
         [MaxLength(50)]
         public string Cuisine { get; set; } // Example: Italian, Chinese, Indian, etc.
 
-        [Range(0, 5)]
-        public double Rating { get; set; } // Average rating (calculated from reviews)
-
-        [Required]
-        public string ImageUrl { get; set; } // Store restaurant images
+        public string? ImageUrl { get; set; } // Store restaurant images
 
         public bool IsActive { get; set; } = true; // Active or Inactive status
+
+        public ICollection<MenuItem>? MenuItems { get; set; }
+
+        public ICollection<Review>? Reviews { get; set; }
     }
 }

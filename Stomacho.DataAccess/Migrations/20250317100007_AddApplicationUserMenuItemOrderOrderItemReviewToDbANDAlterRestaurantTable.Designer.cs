@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Stomacho.DataAccess.Data;
 
@@ -11,9 +12,11 @@ using Stomacho.DataAccess.Data;
 namespace Stomacho.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250317100007_AddApplicationUserMenuItemOrderOrderItemReviewToDbANDAlterRestaurantTable")]
+    partial class AddApplicationUserMenuItemOrderOrderItemReviewToDbANDAlterRestaurantTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,9 +66,6 @@ namespace Stomacho.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("IsAvailable")
                         .HasColumnType("bit");
 
@@ -90,7 +90,6 @@ namespace Stomacho.DataAccess.Migrations
                         {
                             Id = 1,
                             Description = "Steamed dumplings filled with spiced chicken.",
-                            ImageUrl = "",
                             IsAvailable = true,
                             Name = "Chicken Momo",
                             Price = 220m,
@@ -100,7 +99,6 @@ namespace Stomacho.DataAccess.Migrations
                         {
                             Id = 2,
                             Description = "Stir-fried rice noodles with tofu, peanuts, and lime.",
-                            ImageUrl = "",
                             IsAvailable = true,
                             Name = "Thakali Khana",
                             Price = 450m,
@@ -110,7 +108,6 @@ namespace Stomacho.DataAccess.Migrations
                         {
                             Id = 3,
                             Description = "Classic pizza with tomato sauce, mozzarella, and basil.",
-                            ImageUrl = "",
                             IsAvailable = true,
                             Name = "Margherita Pizza",
                             Price = 680m,

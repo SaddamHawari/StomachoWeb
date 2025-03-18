@@ -15,15 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Controllers\" />
-    <Folder Include="Areas\Admin\Views\" />
-    <Folder Include="Areas\Customer\Controllers\" />
-    <Folder Include="Areas\Customer\Views\" />
+    <ProjectReference Include="..\Stomacho.DataAccess\Stomacho.DataAccess.csproj" />
+    <ProjectReference Include="..\Stomacho.Models\Stomacho.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Stomacho.DataAccess\Stomacho.DataAccess.csproj" />
-    <ProjectReference Include="..\Stomacho.Models\Stomacho.Models.csproj" />
+    <Folder Include="wwwroot\images\menuitem\" />
   </ItemGroup>
 
 </Project>
