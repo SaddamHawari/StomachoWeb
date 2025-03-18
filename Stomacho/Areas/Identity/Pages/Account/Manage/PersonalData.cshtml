@@ -1,0 +1,38 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Personal Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<div class="container mt-4 mb-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-header bg-primary text-white text-center">
+            <h3 class="mb-0">@ViewData["Title"]</h3>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <p class="text-muted">Your account contains personal data that you have given us. This page allows you to download or delete that data.</p>
+                    <p class="text-danger font-weight-bold">Deleting this data will permanently remove your account, and this cannot be recovered.</p>
+                    <div class="d-flex mt-3 gap-4">
+                        <div class="row col-12">
+                            <div class="col-3 p-1">
+                                <form id="download-data" asp-page="DownloadPersonalData" method="post">
+                                    <button class="btn btn-primary" type="submit">Download</button>
+                                </form>
+                            </div>
+                            <div class="col-3 p-1">
+                                <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

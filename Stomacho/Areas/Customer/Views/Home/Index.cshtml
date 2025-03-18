@@ -1,0 +1,700 @@
+﻿@model IEnumerable<Restaurant>
+
+
+<!-- ================================
+START HERO-WRAPPER AREA
+================================= -->
+<section class="hero-wrapper">
+    <div class="hero-box hero-bg">
+        <span class="line-bg line-bg1"></span>
+        <span class="line-bg line-bg2"></span>
+        <span class="line-bg line-bg3"></span>
+        <span class="line-bg line-bg4"></span>
+        <span class="line-bg line-bg5"></span>
+        <span class="line-bg line-bg6"></span>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto responsive--column-l">
+                    <div class="hero-content pb-5">
+                        <div class="section-heading">
+                            <h2 class="sec__title cd-headline zoom">
+                                Amazing <span class="cd-words-wrapper">
+                                    <b class="is-visible">Restaurants</b>
+                                    <b>Cuisine</b>
+                                    <b>Drinks</b>
+                                    <b>Foods</b>
+                                    <b>Deals</b>
+                                </span>
+                                Waiting for You <i class="las la-utensils"></i>
+                            </h2>
+                        </div>
+                    </div><!-- end hero-content -->
+                    <div class="section-tab text-center pl-4">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center active" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="true">
+                                    <i class="bi bi-house-heart-fill mr-1"></i>Restaurants
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="false">
+                                    <i class="mr-1 mr-1"></i>Foods
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center" id="location-tab" data-toggle="tab" href="#location" role="tab" aria-controls="hotel" aria-selected="false">
+                                    <i class="la la-hotel mr-1"></i>Locations
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex align-items-center" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="hotel" aria-selected="false">
+                                    <i class="la la-hotel mr-1"></i>Review
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!-- end section-tab -->
+
+                    <div class="tab-content search-fields-container" id="myTabContent">
+
+                        <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                            <div class="tab-content" id="myTabContent3">
+                                <div class="tab-pane fade show active" id="one-way" role="tabpanel" aria-labelledby="one-way-tab">
+                                    <div class="contact-form-action">
+                                        <form action="#" class="row align-items-center">
+
+                                            <div class="col-lg-6 pr-0">
+                                                <div class="input-box">
+                                                    <label class="label-text">Restaurant Name</label>
+                                                    <div class="form-group">
+                                                        <span class="la la-map-marker form-icon"></span>
+                                                        <input class="form-control" type="text" placeholder="Search restaurants">
+                                                    </div>
+                                                </div>
+                                            </div><!-- end col-lg-3 -->
+
+                                            <div class="col-lg-3">
+                                                <a href="flight-search-result.html" class="theme-btn w-100 text-center margin-top-20px">Search Now</a>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div><!-- end tab-pane -->
+                            </div>
+                        </div><!-- end tab-pane -->
+
+                        <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+                            <div class="contact-form-action">
+                                <form action="#" class="row align-items-center">
+
+                                    <div class="col-lg-6 pr-0">
+                                        <div class="input-box">
+                                            <label class="label-text">Foods</label>
+                                            <div class="form-group">
+                                                <span class="la la-map-marker form-icon"></span>
+                                                <input class="form-control" type="text" placeholder="Search food items">
+                                            </div>
+                                        </div>
+                                    </div><!-- end col-lg-3 -->
+
+                                    <div class="col-lg-3">
+                                        <a href="flight-search-result.html" class="theme-btn w-100 text-center margin-top-20px">Search Now</a>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div><!-- end tab-pane -->
+
+                        <div class="tab-pane fade" id="location" role="tabpanel" aria-labelledby="location-tab">
+                            <div class="contact-form-action">
+                                <form action="#" class="row align-items-center">
+
+                                    <div class="col-lg-6 pr-0">
+                                        <div class="input-box">
+                                            <label class="label-text">Restaurants by Locations</label>
+                                            <div class="form-group">
+                                                <span class="la la-map-marker form-icon"></span>
+                                                <input class="form-control" type="text" placeholder="Search restaurants by locations">
+                                            </div>
+                                        </div>
+                                    </div><!-- end col-lg-3 -->
+
+                                    <div class="col-lg-3">
+                                        <a href="flight-search-result.html" class="theme-btn w-100 text-center margin-top-20px">Search Now</a>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div><!-- end tab-pane -->
+
+                        <div class="tab-pane fade" id="review" role="tabpanel" aria-labelledby="review-tab">
+                            <div class="contact-form-action">
+                                <form action="#" class="row align-items-center">
+
+                                    <div class="col-lg-6 pr-0">
+                                        <div class="input-box">
+                                            <label class="label-text">Insert review from 1 to 5</label>
+                                            <div class="form-group">
+                                                <span class="la la-map-marker form-icon"></span>
+                                                <input class="form-control" type="text" placeholder="Search restaurant by review">
+                                            </div>
+                                        </div>
+                                    </div><!-- end col-lg-3 -->
+
+                                    <div class="col-lg-3">
+                                        <a href="flight-search-result.html" class="theme-btn w-100 text-center margin-top-20px">Search Now</a>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div><!-- end tab-pane -->
+
+                    </div>
+                </div><!-- end col-lg-12 -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+        <svg class="hero-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 10 0 0 A 90 59, 0, 0, 0, 100 0 L 100 10 Z"></path></svg>
+    </div>
+</section><!-- end hero-wrapper -->
+<!-- ================================
+END HERO-WRAPPER AREA
+================================= -->
+
+
+<!-- ================================
+START HOTEL AREA
+================================= -->
+<section class="card-area section--padding">
+    <div class="container">
+        <div class="row">
+            @foreach (var restaurant in Model)
+            {
+                <div class="col-lg-4 responsive-column">
+                    <div class="card-item">
+                        <div class="card-img">
+                            <a href="hotel-single.html" class="d-block">
+                                <img src="@restaurant.ImageUrl" alt="restaurant-img" />
+                            </a>
+                            <span class="badge">Bestseller</span>
+                            <div class="add-to-wishlist icon-element" data-toggle="tooltip" data-placement="top" title="Bookmark">
+                                <i class="la la-heart-o"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title"><a href="hotel-single.html">@restaurant.Name</a></h3>
+                            <p class="card-meta">@restaurant.Location</p>
+                            <div class="card-rating">
+                                <span class="badge text-white">4.4/5</span>
+                                <span class="review__text">Average</span>
+                                <span class="rating__text">(30 Reviews)</span>
+                            </div>
+                            <div class="card-price d-flex align-items-center justify-content-between">
+                                <p>
+                                    <span class="price__from">Speciality with @Html.Raw(@restaurant.Cuisine)</span>
+                                </p>
+                            </div>
+                            <a asp-action="SeeMenu" asp-route-restaurantId="@restaurant.Id" class="btn btn-primary">See Menu<i class="la la-angle-right"></i></a>
+                        </div>
+                    </div><!-- end card-item -->
+                </div>
+
+                <!-- end col-lg-4 -->
+            }
+        </div><!-- end row -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="btn-box mt-3 text-center">
+                    <button type="button" class="theme-btn"><i class="la la-refresh mr-1"></i>Load More</button>
+                    <p class="font-size-13 pt-2">Showing 1 - 6 of 2224 Restaurants</p>
+                </div><!-- end btn-box -->
+            </div><!-- end col-lg-12 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end card-area -->
+<!-- ================================
+END HOTEL AREA
+================================= -->
+
+
+<!-- ================================
+START INFO AREA
+================================= -->
+<section class="info-area info-bg padding-top-50px padding-bottom-50px text-center bg-yellow">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="icon-box">
+                    <div class="info-icon">
+                        <i class="la la-bullhorn"></i>
+                    </div><!-- end info-icon-->
+                    <div class="info-content">
+                        <h4 class="info__title">Order from Anywhere</h4>
+                        <p class="info__desc">
+                            Enjoy your favorite meals delivered to your doorstep with just a few clicks. 
+                            Our app makes food ordering easy and convenient.
+                        </p>
+                    </div><!-- end info-content -->
+                </div><!-- end icon-box -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-4">
+                <div class="icon-box margin-top-50px">
+                    <div class="info-icon">
+                        <i class="las la-hamburger"></i>
+                    </div><!-- end info-icon-->
+                    <div class="info-content">
+                        <h4 class="info__title">Wide Variety of Cuisines</h4>
+                        <p class="info__desc">
+                            Discover a world of flavors with our extensive menu options. 
+                            From local favorites to international delights, we have something for everyone.
+                        </p>
+                    </div><!-- end info-content -->
+                </div><!-- end icon-box -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-4">
+                <div class="icon-box">
+                    <div class="info-icon">
+                        <i class="las la-biking"></i>
+                    </div><!-- end info-icon-->
+                    <div class="info-content">
+                        <h4 class="info__title">Fast and Reliable Delivery</h4>
+                        <p class="info__desc">
+                            Our dedicated delivery team ensures that your food arrives hot and fresh, right on time. 
+                            Experience the best in food delivery service.
+                        </p>
+                    </div><!-- end info-content -->
+                </div><!-- end icon-box -->
+            </div><!-- end col-lg-4 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end info-area -->
+<!-- ================================
+END INFO AREA
+================================= -->
+
+
+<!-- ================================
+       START TESTIMONIAL AREA
+================================= -->
+<section class="testimonial-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="section-heading">
+                    <h2 class="sec__title line-height-50">What our customers are saying</h2>
+                    <p class="sec__desc padding-top-30px">
+                        Hear from our satisfied customers who have enjoyed our food delivery service.
+                    </p>
+                    <div class="btn-box padding-top-35px">
+                        <a href="#" class="theme-btn">Explore All</a>
+                    </div>
+                </div><!-- end section-heading -->
+            </div><!-- end col-lg-4 -->
+            <div class="col-lg-8">
+                <div class="testimonial-carousel carousel-action">
+                    <div class="testimonial-card">
+                        <div class="testi-desc-box">
+                            <p class="testi__desc">The food arrived hot and fresh, and the delivery was super fast. Highly recommend!</p>
+                        </div>
+                        <div class="author-content d-flex align-items-center">
+                            <div class="author-img">
+                                <img src="~/dist/images/team8.jpg" alt="testimonial image">
+                            </div>
+                            <div class="author-bio">
+                                <h4 class="author__title">Suman Shrestha</h4>
+                                <span class="author__meta">Kathmandu, Nepal</span>
+                                <span class="ratings d-flex align-items-center">
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div><!-- end testimonial-card -->
+                    <div class="testimonial-card">
+                        <div class="testi-desc-box">
+                            <p class="testi__desc">Amazing variety of cuisines to choose from. The app is easy to use and the service is excellent.</p>
+                        </div>
+                        <div class="author-content d-flex align-items-center">
+                            <div class="author-img">
+                                <img src="~/dist/images/team9.jpg" alt="testimonial image">
+                            </div>
+                            <div class="author-bio">
+                                <h4 class="author__title">Anita Gurung</h4>
+                                <span class="author__meta">Pokhara, Nepal</span>
+                                <span class="ratings d-flex align-items-center">
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div><!-- end testimonial-card -->
+                    <div class="testimonial-card">
+                        <div class="testi-desc-box">
+                            <p class="testi__desc">The delivery was on time and the food was delicious. Will definitely order again!</p>
+                        </div>
+                        <div class="author-content d-flex align-items-center">
+                            <div class="author-img">
+                                <img src="~/dist/images/team10.jpg" alt="testimonial image">
+                            </div>
+                            <div class="author-bio">
+                                <h4 class="author__title">Ramesh Thapa</h4>
+                                <span class="author__meta">Lalitpur, Nepal</span>
+                                <span class="ratings d-flex align-items-center">
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div><!-- end testimonial-card -->
+                    <div class="testimonial-card">
+                        <div class="testi-desc-box">
+                            <p class="testi__desc">Great service and delicious food. The app makes it so easy to order from my favorite restaurants.</p>
+                        </div>
+                        <div class="author-content d-flex align-items-center">
+                            <div class="author-img">
+                                <img src="~/dist/images/team8.jpg" alt="testimonial image">
+                            </div>
+                            <div class="author-bio">
+                                <h4 class="author__title">Bina Maharjan</h4>
+                                <span class="author__meta">Bhaktapur, Nepal</span>
+                                <span class="ratings d-flex align-items-center">
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                    <i class="la la-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div><!-- end testimonial-card -->
+                </div><!-- end testimonial-carousel -->
+            </div><!-- end col-lg-8 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end testimonial-area -->
+<!-- ================================
+       START TESTIMONIAL AREA
+================================= -->
+
+
+<!-- ================================
+    START MOBILE AREA
+================================= -->
+<section class="mobile-app padding-top-100px padding-bottom-50px bg-yellow">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mobile-app-content">
+                    <div class="section-heading">
+                        <h2 class="sec__title line-height-55">Stomacho Android and IOS App is Comming Soon!</h2>
+                    </div><!-- end section-heading -->
+                    <ul class="info-list padding-top-30px">
+                        <li class="d-flex align-items-center mb-3"><span class="la la-check icon-element flex-shrink-0 ml-0"></span> Browse and order from a wide variety of restaurants</li>
+                        <li class="d-flex align-items-center mb-3"><span class="la la-check icon-element flex-shrink-0 ml-0"></span> Track your order in real-time</li>
+                        <li class="d-flex align-items-center mb-3"><span class="la la-check icon-element flex-shrink-0 ml-0"></span> Enjoy exclusive deals and discounts</li>
+                    </ul>
+                    <div class="btn-box padding-top-30px">
+                        <a href="#" class="d-inline-block mr-3">
+                            <img src="~/dist/images/app-store.png" alt="">
+                        </a>
+                        <a href="#" class="d-inline-block">
+                            <img src="~/dist/images/google-play.png" alt="">
+                        </a>
+                    </div><!-- end btn-box -->
+                </div>
+            </div><!-- end col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="mobile-img">
+                    <img src="~/dist/images/mobile-app.png" alt="mobile-img">
+                </div>
+            </div><!-- end col-lg-5 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end mobile-app -->
+<!-- ================================
+    END MOBILE AREA
+================================= -->
+
+
+<!-- ================================
+       START CLIENTLOGO AREA
+================================= -->
+<section class="clientlogo-area padding-top-80px padding-bottom-80px text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="client-logo">
+                    <div class="client-logo-item">
+                        <img src="~/dist/images/client-logo.png" alt="brand image">
+                    </div><!-- end client-logo-item -->
+                    <div class="client-logo-item">
+                        <img src="~/dist/images/client-logo2.png" alt="brand image">
+                    </div><!-- end client-logo-item -->
+                    <div class="client-logo-item">
+                        <img src="~/dist/images/client-logo.png" alt="brand image">
+                    </div><!-- end client-logo-item -->
+                    <div class="client-logo-item">
+                        <img src="~/dist/images/client-logo.png" alt="brand image">
+                    </div><!-- end client-logo-item -->
+                    <div class="client-logo-item">
+                        <img src="~/dist/images/client-logo.png" alt="brand image">
+                    </div><!-- end client-logo-item -->
+                    <div class="client-logo-item">
+                        <img src="~/dist/images/client-logo.png" alt="brand image">
+                    </div><!-- end client-logo-item -->
+                </div><!-- end client-logo -->
+            </div><!-- end col-lg-12 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end clientlogo-area -->
+<!-- ================================
+       END CLIENTLOGO AREA
+================================= -->
+
+
+<!-- ================================
+       START FOOTER AREA
+================================= -->
+<section class="footer-area section-bg padding-top-100px padding-bottom-30px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 responsive-column">
+                <div class="footer-item">
+                    <div class="footer-logo padding-bottom-30px">
+                        <a asp-area="Customer" asp-controller="Home" asp-action="Index"><img src="~/dist/images/stomachoogo.png" alt="logo"></a>
+                    </div><!-- end logo -->
+                    <p class="footer__desc">Enjoy delicious meals delivered to your doorstep with Stomacho.</p>
+                    <ul class="list-items pt-3">
+                        <li>1234 Durbar Marg, Kathmandu,<br> Bagmati Province, Nepal</li>
+                        <li>+977-9746552813</li>
+                        <li><a href="mailto:stomachofastfood@gmail.com">stomachofastfood@gmail.com</a></li>
+                    </ul>
+                </div><!-- end footer-item -->
+            </div><!-- end col-lg-3 -->
+            <div class="col-lg-3 responsive-column">
+                <div class="footer-item">
+                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Company</h4>
+                    <ul class="list-items list--items">
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="blog-grid.html">News</a></li>
+                        <li><a href="contact.html">Support</a></li>
+                        <li><a href="#">Advertising</a></li>
+                    </ul>
+                </div><!-- end footer-item -->
+            </div><!-- end col-lg-3 -->
+            <div class="col-lg-3 responsive-column">
+                <div class="footer-item">
+                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Other Links</h4>
+                    <ul class="list-items list--items">
+                        <li><a href="#">Order Tracking</a></li>
+                        <li><a href="#">Restaurant Partners</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div><!-- end footer-item -->
+            </div><!-- end col-lg-3 -->
+            <div class="col-lg-3 responsive-column">
+                <div class="footer-item">
+                    <h4 class="title curve-shape pb-3 margin-bottom-20px" data-text="curvs">Subscribe now</h4>
+                    <p class="footer__desc pb-3">Subscribe for the latest updates & promotions</p>
+                    <div class="contact-form-action">
+                        <form action="#">
+                            <div class="input-box">
+                                <label class="label-text">Enter email address</label>
+                                <div class="form-group mb-0">
+                                    <span class="la la-envelope form-icon"></span>
+                                    <input class="form-control" type="email" name="email" placeholder="Email address">
+                                    <button class="theme-btn theme-btn-small submit-btn" type="submit">Go</button>
+                                    <span class="font-size-14 pt-1"><i class="la la-lock mr-1"></i>Your information is safe with us.</span>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- end footer-item -->
+            </div><!-- end col-lg-3 -->
+        </div><!-- end row -->
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="term-box footer-item">
+                    <ul class="list-items list--items d-flex align-items-center">
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Help Center</a></li>
+                    </ul>
+                </div>
+            </div><!-- end col-lg-8 -->
+            <div class="col-lg-4">
+                <div class="footer-social-box text-right">
+                    <ul class="social-profile">
+                        <li><a href="#"><i class="lab la-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="lab la-twitter"></i></a></li>
+                        <li><a href="#"><i class="lab la-instagram"></i></a></li>
+                        <li><a href="#"><i class="lab la-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+            </div><!-- end col-lg-4 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+    <div class="section-block mt-4"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="copy-right padding-top-30px">
+                    <p class="copy__desc">
+                        &copy; Copyright Stomacho 2023. Made with
+                        <span class="la la-heart"></span> by <a href="https://themeforest.net/user/techydevs/portfolio">Saddam Hawari</a>
+                    </p>
+                </div><!-- end copy-right -->
+            </div><!-- end col-lg-7 -->
+            <div class="col-lg-5">
+                <div class="copy-right-content d-flex align-items-center justify-content-end padding-top-30px">
+                    <h3 class="title font-size-15 pr-2">We Accept</h3>
+                    <img src="~/dist/images/payment-img.png" alt="">
+                </div><!-- end copy-right-content -->
+            </div><!-- end col-lg-5 -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end footer-area -->
+<!-- ================================
+       START FOOTER AREA
+================================= -->
+<!-- start back-to-top -->
+<div id="back-to-top">
+    <i class="la la-angle-up" title="Go top"></i>
+</div>
+<!-- end back-to-top -->
+<!-- end modal-shared -->
+<div class="modal-popup">
+    <div class="modal fade" id="signupPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title title" id="exampleModalLongTitle">Sign Up</h5>
+                        <p class="font-size-14">Hello! Welcome Create a New Account</p>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="la la-close"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="contact-form-action">
+                        <form method="post">
+                            <div class="input-box">
+                                <label class="label-text">Username</label>
+                                <div class="form-group">
+                                    <span class="la la-user form-icon"></span>
+                                    <input class="form-control" type="text" name="text" placeholder="Type your username">
+                                </div>
+                            </div><!-- end input-box -->
+                            <div class="input-box">
+                                <label class="label-text">Email Address</label>
+                                <div class="form-group">
+                                    <span class="la la-envelope form-icon"></span>
+                                    <input class="form-control" type="text" name="text" placeholder="Type your email">
+                                </div>
+                            </div><!-- end input-box -->
+                            <div class="input-box">
+                                <label class="label-text">Password</label>
+                                <div class="form-group">
+                                    <span class="la la-lock form-icon"></span>
+                                    <input class="form-control" type="text" name="text" placeholder="Type password">
+                                </div>
+                            </div><!-- end input-box -->
+                            <div class="input-box">
+                                <label class="label-text">Repeat Password</label>
+                                <div class="form-group">
+                                    <span class="la la-lock form-icon"></span>
+                                    <input class="form-control" type="text" name="text" placeholder="Type again password">
+                                </div>
+                            </div><!-- end input-box -->
+                            <div class="btn-box pt-3 pb-4">
+                                <button type="button" class="theme-btn w-100">Register Account</button>
+                            </div>
+                            <div class="action-box text-center">
+                                <p class="font-size-14">Or Sign up Using</p>
+                                <ul class="social-profile py-3">
+                                    <li><a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a></li>
+                                    <li><a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a></li>
+                                    <li><a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a></li>
+                                    <li><a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div><!-- end contact-form-action -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- end modal-popup -->
+<!-- end modal-shared -->
+<div class="modal-popup">
+    <div class="modal fade" id="loginPopupForm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title title" id="exampleModalLongTitle2">Login</h5>
+                        <p class="font-size-14">Hello! Welcome to your account</p>
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="la la-close"></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="contact-form-action">
+                        <form method="post">
+                            <div class="input-box">
+                                <label class="label-text">Username</label>
+                                <div class="form-group">
+                                    <span class="la la-user form-icon"></span>
+                                    <input class="form-control" type="text" name="text" placeholder="Type your username">
+                                </div>
+                            </div><!-- end input-box -->
+                            <div class="input-box">
+                                <label class="label-text">Password</label>
+                                <div class="form-group mb-2">
+                                    <span class="la la-lock form-icon"></span>
+                                    <input class="form-control" type="text" name="text" placeholder="Type your password">
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="custom-checkbox mb-0">
+                                        <input type="checkbox" id="rememberchb">
+                                        <label for="rememberchb">Remember me</label>
+                                    </div>
+                                    <p class="forgot-password">
+                                        <a href="recover.html">Forgot Password?</a>
+                                    </p>
+                                </div>
+                            </div><!-- end input-box -->
+                            <div class="btn-box pt-3 pb-4">
+                                <button type="button" class="theme-btn w-100">Login Account</button>
+                            </div>
+                            <div class="action-box text-center">
+                                <p class="font-size-14">Or Login Using</p>
+                                <ul class="social-profile py-3">
+                                    <li><a href="#" class="bg-5 text-white"><i class="lab la-facebook-f"></i></a></li>
+                                    <li><a href="#" class="bg-6 text-white"><i class="lab la-twitter"></i></a></li>
+                                    <li><a href="#" class="bg-7 text-white"><i class="lab la-instagram"></i></a></li>
+                                    <li><a href="#" class="bg-5 text-white"><i class="lab la-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                        </form>
+                    </div><!-- end contact-form-action -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- end modal-popup -->

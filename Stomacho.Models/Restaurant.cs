@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace Stomacho.Models
 {
@@ -14,6 +16,7 @@ namespace Stomacho.Models
 
         [Required]
         [MaxLength(100)]
+        [Display(Name = "Restaurant Name")]
         public string Name { get; set; }
 
         [Required]
@@ -21,15 +24,17 @@ namespace Stomacho.Models
         public string Location { get; set; }
 
         [Required]
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Cuisine { get; set; } // Example: Italian, Chinese, Indian, etc.
 
-        [Range(0, 5)]
-        public double Rating { get; set; } // Average rating (calculated from reviews)
-
-        [Required]
-        public string ImageUrl { get; set; } // Store restaurant images
+        [ValidateNever]
+        public string? ImageUrl { get; set; } // Store restaurant images
 
         public bool IsActive { get; set; } = true; // Active or Inactive status
+
+        [JsonIgnore]
+        public ICollection<MenuItem>? MenuItems { get; set; }
+
+        //public ICollection<Review>? Reviews { get; set; }
     }
 }

@@ -1,0 +1,66 @@
+﻿@model Restaurant
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-body p-4">
+        <form method="post" enctype="multipart/form-data">
+            <input asp-for="ImageUrl" hidden />
+            <div class="row pb-2 ml-3">
+                <h2 class="text-black">
+                    Create Restaurant
+                </h2>
+            </div>
+            <div class="border p-3 mt-4">
+                <div class="form-floating py-2 col-10">
+                    <label asp-for="Name" class="ms-2"></label>
+                    <input asp-for="Name" class="form-control border-0 shadow" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-10">
+                    <label asp-for="Cuisine" class="ms-2"></label>
+                    <textarea asp-for="Cuisine" class="form-control border-0 shadow"></textarea>
+                    <span asp-validation-for="Cuisine" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-10">
+                    <label asp-for="Location" class="ms-2"></label>
+                    <input asp-for="Location" class="form-control border-0 shadow" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-10">
+                    <label asp-for="ImageUrl" class="ms-2"></label>
+                    <input type="file" name="file" class="form-control border-0 shadow" />
+                </div>
+                <div class="form-floating py-2 col-10">
+                    <label asp-for="IsActive" class="ms-2"></label>
+                    <input asp-for="IsActive" class="form-check-inline border-1 shadow" />
+                    <span asp-validation-for="IsActive" class="text-danger"></span>
+                </div>
+                <div class="row pt-2">
+                    <div class="col-10 col-md-3">
+                        <button type="submit" class="btn btn-primary form-control">Create</button>
+                    </div>
+                    <div class="col-10 col-md-3">
+                        <a asp-controller="Restaurant" asp-action="Index" class="btn btn-outline-primary border  form-control">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: [
+            // Core editing features
+            'anchor', 'autolink', 'charmap', 'codesample', 'emoticons','lists','table', 'visualblocks', 'wordcount',
+            ],
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | align lineheight',
+        });
+    </script>
+}
