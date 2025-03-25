@@ -13,30 +13,38 @@
                 <div class="col-10">
                     <div class=" p-3 mt-4">
                         <div class="form-floating py-2 col-12">
-                            <label asp-for="Name" disabled class="ms-2"></label>
-                            <input asp-for="Name" class="form-control border-0 shadow" />
-                        </div>
+                    <label asp-for="Name" disabled class="ms-2"></label>
+                    <input asp-for="Name" class="form-control border-0 shadow" />
+                </div>
                         <div class="form-floating py-2 col-12">
                             <label asp-for="Cuisine" class="ms-2 text-muted"></label>
                             <textarea asp-for="Cuisine" class="form-control border-0 shadow"></textarea>
-                        </div>
+                </div>
                         <div class="form-floating py-2 col-12">
-                            <label asp-for="Location" disabled class="ms-2"></label>
-                            <input asp-for="Location" class="form-control border-0 shadow" />
-                        </div>
+                    <label asp-for="Location" disabled class="ms-2"></label>
+                    <input asp-for="Location" class="form-control border-0 shadow" />
+                </div>
                         <div class="form-floating py-2 col-12">
                             <label asp-for="IsActive" class="ms-2"></label>
                             <input asp-for="IsActive" class="form-check-inline border-1 shadow" />
-                        </div>
-                        <div class="row pt-2">
+                </div>
+                <div class="form-floating py-2 col-6">
+                    <label asp-for="IsActive" disabled class="ms-2"></label>
+                    <input asp-for="IsActive" class="form-control border-0 shadow" />
+                </div>
+                @* <div class="form-floating py-2 col-6">
+                    <label asp-for="Rating" disabled class="ms-2"></label>
+                    <input asp-for="Rating" class="form-control border-0 shadow" />
+                </div> *@
+                <div class="row pt-2">
                             <div class="col-12 col-md-3">
-                                <button type="submit" class="btn btn-danger form-control">Delete</button>
-                            </div>
+                        <button type="submit" class="btn btn-danger form-control">Delete</button>
+                    </div>
                             <div class="col-12 col-md-3">
-                                <a asp-controller="Restaurant" asp-action="Index" class="btn btn-outline-primary border  form-control">
-                                    Back to List
-                                </a>
-                            </div>
+                        <a asp-controller="Restaurant" asp-action="Index" class="btn btn-outline-primary border  form-control">
+                            Back to List
+                        </a>
+                    </div>
                         </div>
                     </div>
                 </div>

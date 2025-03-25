@@ -50,7 +50,7 @@ namespace Stomacho.Areas.Admin.Controllers
                     obj.ImageUrl = @"\images\restaurant\" + fileName;
                 }
                 _unitOfWork.Restaurant.Add(obj);
-                _unitOfWork.Save(); 
+                _unitOfWork.Save();
                 TempData["success"] = "Restaurant created successfully";
                 return RedirectToAction("Index");
             }
