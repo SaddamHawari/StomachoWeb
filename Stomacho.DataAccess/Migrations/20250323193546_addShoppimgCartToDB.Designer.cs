@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Stomacho.DataAccess.Data;
 
@@ -11,9 +12,11 @@ using Stomacho.DataAccess.Data;
 namespace Stomacho.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250323193546_addShoppimgCartToDB")]
+    partial class addShoppimgCartToDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,8 +286,9 @@ namespace Stomacho.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("RestaurantId")
                         .HasColumnType("int");
@@ -303,7 +307,7 @@ namespace Stomacho.DataAccess.Migrations
                             ImageUrl = "",
                             IsAvailable = true,
                             Name = "Chicken Momo",
-                            Price = 220.0,
+                            Price = 220m,
                             RestaurantId = 1
                         },
                         new
@@ -313,7 +317,7 @@ namespace Stomacho.DataAccess.Migrations
                             ImageUrl = "",
                             IsAvailable = true,
                             Name = "Thakali Khana",
-                            Price = 450.0,
+                            Price = 450m,
                             RestaurantId = 2
                         },
                         new
@@ -323,111 +327,9 @@ namespace Stomacho.DataAccess.Migrations
                             ImageUrl = "",
                             IsAvailable = true,
                             Name = "Margherita Pizza",
-                            Price = 680.0,
+                            Price = 680m,
                             RestaurantId = 3
                         });
-                });
-
-            modelBuilder.Entity("Stomacho.Models.OrderDetail", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("Count")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MenuItemId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderHeaderId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MenuItemId");
-
-                    b.HasIndex("OrderHeaderId");
-
-                    b.ToTable("OrderDetails");
-                });
-
-            modelBuilder.Entity("Stomacho.Models.OrderHeader", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Carrier")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("OrderDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("OrderStatus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("OrderTotal")
-                        .HasColumnType("float");
-
-                    b.Property<DateTime>("PaymentDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateOnly>("PaymentDueDate")
-                        .HasColumnType("date");
-
-                    b.Property<string>("PaymentIntentId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PaymentStatus")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PostalCode")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ShippingDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("StreetAddress")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TrackingNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("OrderHeaders");
                 });
 
             modelBuilder.Entity("Stomacho.Models.Restaurant", b =>
@@ -502,6 +404,7 @@ namespace Stomacho.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Count")
@@ -516,7 +419,7 @@ namespace Stomacho.DataAccess.Migrations
 
                     b.HasIndex("MenuItemId");
 
-                    b.ToTable("ShoppingCarts");
+                    b.ToTable("shoppingCarts");
                 });
 
             modelBuilder.Entity("Stomacho.Models.ApplicationUser", b =>
@@ -609,41 +512,13 @@ namespace Stomacho.DataAccess.Migrations
                     b.Navigation("Restaurant");
                 });
 
-            modelBuilder.Entity("Stomacho.Models.OrderDetail", b =>
-                {
-                    b.HasOne("Stomacho.Models.MenuItem", "MenuItem")
-                        .WithMany()
-                        .HasForeignKey("MenuItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Stomacho.Models.OrderHeader", "OrderHeader")
-                        .WithMany()
-                        .HasForeignKey("OrderHeaderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MenuItem");
-
-                    b.Navigation("OrderHeader");
-                });
-
-            modelBuilder.Entity("Stomacho.Models.OrderHeader", b =>
+            modelBuilder.Entity("Stomacho.Models.ShoppingCart", b =>
                 {
                     b.HasOne("Stomacho.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("ApplicationUser");
-                });
-
-            modelBuilder.Entity("Stomacho.Models.ShoppingCart", b =>
-                {
-                    b.HasOne("Stomacho.Models.ApplicationUser", "ApplicationUser")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId");
 
                     b.HasOne("Stomacho.Models.MenuItem", "MenuItem")
                         .WithMany()

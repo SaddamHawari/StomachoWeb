@@ -107,9 +107,18 @@
                                             <option disabled selected>Choose a role</option>
                                         </select>
                                     </div>
-                                    <span asp-validation-for="Input.Role" class="text-danger"></span>
                                 </div>
-                            </div> 
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Input.RestaurantId" class="form-label">Select Restaurant</label>
+                                    <div class="input-group">
+                                        <select asp-for="Input.RestaurantId" style="display:none;" asp-items="@Model.Input.RestaurantList" class="form-select">
+                                            <option disabled selected>Choose a Restaurant</option>
+                                        </select> 
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <button id="registerSubmit" type="submit" class="btn btn-primary w-100">Register</button>
                     </form>
@@ -156,4 +165,17 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function() {
+            $('#Input_Role').change(function() {
+                var selection = $('#Input_Role option:selected').text(); 
+                if (selection == 'Company') { 
+                    $('#Input_RestaurantId').show();
+                } else {
+                    $('#Input_RestaurantId').hide();
+                }
+            });
+        });
+    </script>
+
 }

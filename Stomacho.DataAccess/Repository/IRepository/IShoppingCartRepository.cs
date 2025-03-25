@@ -7,8 +7,8 @@ using Stomacho.Models;
 
 namespace Stomacho.DataAccess.Repository.IRepository
 {
-    public interface ICompanyRepository : IRepository<Company>
+    public interface IShoppingCartRepository : IRepository<ShoppingCart>
     {
-        void Update( Company obj);
+        void Update( ShoppingCart obj);
     }
 }

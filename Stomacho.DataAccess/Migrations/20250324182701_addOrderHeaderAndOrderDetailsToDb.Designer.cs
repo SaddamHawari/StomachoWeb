@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Stomacho.DataAccess.Data;
 
@@ -11,9 +12,11 @@ using Stomacho.DataAccess.Data;
 namespace Stomacho.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250324182701_addOrderHeaderAndOrderDetailsToDb")]
+    partial class addOrderHeaderAndOrderDetailsToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,8 +286,9 @@ namespace Stomacho.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("RestaurantId")
                         .HasColumnType("int");
@@ -303,7 +307,7 @@ namespace Stomacho.DataAccess.Migrations
                             ImageUrl = "",
                             IsAvailable = true,
                             Name = "Chicken Momo",
-                            Price = 220.0,
+                            Price = 220m,
                             RestaurantId = 1
                         },
                         new
@@ -313,7 +317,7 @@ namespace Stomacho.DataAccess.Migrations
                             ImageUrl = "",
                             IsAvailable = true,
                             Name = "Thakali Khana",
-                            Price = 450.0,
+                            Price = 450m,
                             RestaurantId = 2
                         },
                         new
@@ -323,7 +327,7 @@ namespace Stomacho.DataAccess.Migrations
                             ImageUrl = "",
                             IsAvailable = true,
                             Name = "Margherita Pizza",
-                            Price = 680.0,
+                            Price = 680m,
                             RestaurantId = 3
                         });
                 });

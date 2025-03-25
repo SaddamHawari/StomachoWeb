@@ -1,12 +1,11 @@
-﻿@model Restaurant
+﻿@model SeeMenuViewModel
 
 <!-- ================================
 START BREADCRUMB AREA
 ================================= -->
-<section class="breadcrumb-area py-0" style="background: url('@Url.Content(Model.ImageUrl.Replace("\\", "/"))') no-repeat center center;
+<section class="breadcrumb-area py-0" style="background: url('@Url.Content(Model.Restaurant.ImageUrl.Replace("\\", "/"))') no-repeat center center;
            background-size: cover;
            min-height: 500px;">
-    >
     <div class="breadcrumb-wrap">
         <div class="container">
             <div class="row">
@@ -17,7 +16,7 @@ START BREADCRUMB AREA
                             data-speed="700">
                                 <i class="la la-video-camera mr-2"></i>Video
                             </a>
-                            <a class="theme-btn" data-src="@Model.ImageUrl"
+                            <a class="theme-btn" data-src="@Model.Restaurant.ImageUrl"
                             data-fancybox="gallery"
                             data-caption="Showing image - 01"
                             data-speed="700">
@@ -61,9 +60,9 @@ START TOUR DETAIL AREA
                     <div class="single-content-wrap padding-top-60px">
                         <div id="description" class="page-scroll">
                             <div class="single-content-item pb-4">
-                                <h3 class="title font-size-26">@Model.Name</h3>
+                                <h3 class="title font-size-26">@Model.Restaurant.Name</h3>
                                 <div class="d-flex align-items-center pt-2">
-                                    <p class="mr-2">@Model.Location</p>
+                                    <p class="mr-2">@Model.Restaurant.Location</p>
                                     <p>
                                         <span class="badge badge-warning text-white font-size-16">4.7</span>
                                         <span>(4,209 Reviews)</span>
@@ -80,7 +79,7 @@ START TOUR DETAIL AREA
                                             </div>
                                             <div class="single-feature-titles">
                                                 <h3 class="title font-size-15 font-weight-medium">Cuisine</h3>
-                                                <span class="font-size-13">@Model.Cuisine</span>
+                                                <span class="font-size-13">@Model.Restaurant.Cuisine</span>
                                             </div>
                                         </div><!-- end single-tour-feature -->
                                     </div><!-- end col-lg-4 -->
@@ -91,7 +90,7 @@ START TOUR DETAIL AREA
                                             </div>
                                             <div class="single-feature-titles">
                                                 <h3 class="title font-size-15 font-weight-medium">Location</h3>
-                                                <span class="font-size-13">@Model.Location</span>
+                                                <span class="font-size-13">@Model.Restaurant.Location</span>
                                             </div>
                                         </div><!-- end single-tour-feature -->
                                     </div><!-- end col-lg-4 -->
@@ -143,104 +142,117 @@ START TOUR DETAIL AREA
                             </div><!-- end single-content-item -->
                             <div class="section-block"></div>
                             <div class="single-content-item padding-top-40px padding-bottom-40px">
-                                <h3 class="title font-size-20">About @Model.Name</h3>
+                                <h3 class="title font-size-20">About @Model.Restaurant.Name</h3>
                                 <p class="py-3">
-                                    Welcome to @Model.Name, located in the heart of @Model.Location. We specialize in @Model.Cuisine cuisine, 
+                                    Welcome to @Model.Restaurant.Name, located in the heart of @Model.Restaurant.Location. We specialize in @Model.Restaurant.Cuisine cuisine,
                                     offering a wide variety of dishes that are sure to satisfy your taste buds. Our restaurant is known for 
                                     its excellent service and cozy atmosphere, making it the perfect place for any occasion.
                                 </p>
                                 <p>
-                                    At @Model.Name, we are committed to providing our customers with the best dining experience possible. 
+                                    At @Model.Restaurant.Name, we are committed to providing our customers with the best dining experience possible.
                                     Our chefs use only the freshest ingredients to prepare each dish, ensuring that every meal is of the highest 
                                     quality. Whether you're here for a quick lunch or a leisurely dinner, we have something for everyone.
                                 </p>
                                 <p>
-                                    We look forward to welcoming you to @Model.Name and hope you enjoy your dining experience with us. 
+                                    We look forward to welcoming you to @Model.Restaurant.Name and hope you enjoy your dining experience with us.
                                     If you have any questions or need assistance, please don't hesitate to ask our friendly staff.
                                 </p>
                             </div><!-- end single-content-item -->
                             <div class="section-block"></div>
                         </div><!-- end description -->
-                        <div id="availability" class="page-scroll">
-                            <div class="single-content-item padding-top-40px padding-bottom-30px">
-                                <h3 class="title font-size-20">@Model.Name Menu</h3>
-                                <div class="cabin-type padding-top-30px">
-                                    @if (Model.MenuItems != null && Model.MenuItems.Any())
-                                    {
-                                        @foreach (var item in Model.MenuItems)
-                                        {
-                                            <div class="cabin-type-item seat-selection-item d-flex">
-                                                <div class="cabin-type-img flex-shrink-0">
-                                                    <img src="@item.ImageUrl" alt="">
-                                                </div>
-                                                <div class="cabin-type-detail">
-                                                    <h3 class="title">@item.Name</h3>
-                                                    <div class="row padding-top-20px">
-                                                        <div class="col-lg-12 responsive-column">
-                                                            <div class="single-tour-feature d-flex align-items-center mb-3">
-                                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
-                                                                    <i class="las la-align-justify"></i>
-                                                                </div>
-                                                                <div class="single-feature-titles">
-                                                                    <h3 class="title font-size-15 font-weight-medium">@Html.Raw(@item.Description)</h3>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- end col-lg-6 -->
-                                                        <div class="col-lg-12 responsive-column">
-                                                            <div class="single-tour-feature d-flex align-items-center mb-3">
-                                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
-                                                                    <i class="las la-rupee-sign"></i>
-                                                                </div>
-                                                                <div class="single-feature-titles">
-                                                                    <h3 class="title font-size-15 font-weight-medium">@item.Price</h3>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- end col-lg-6 -->
-                                                        <div class="col-lg-12 responsive-column">
-                                                            <div class="single-tour-feature d-flex align-items-center mb-3">
-                                                                <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
-                                                                    <i class="las la-hand-holding-heart"></i>
-                                                                </div>
-                                                                <div class="single-feature-titles">
-                                                                    <h3 class="title font-size-15 font-weight-medium">
-                                                                        @if (item.IsAvailable)
-                                                                        {
-                                                                            <span>Serving</span>
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            <span>Not serving at the Moment <i class="las la-grin-beam-sweat"></i></span>
-                                                                        }
-                                                                    </h3>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- end col-lg-6 -->
-                                                    </div><!-- end row -->
-                                                </div>
-                                                <div class="cabin-price">
-                                                    <div class="custom-checkbox mb-0">
-                                                        <label for="selectChb1" class="theme-btn theme-btn-small">Add To Basket</label>
-                                                    </div>
-                                                </div>
-                                            </div>
 
-                                            <!-- end cabin-type-item -->
+                            <div id="availability" class="page-scroll">
+                                <div class="single-content-item padding-top-40px padding-bottom-30px">
+                                    <h3 class="title font-size-20">@Model.Restaurant.Name Menu</h3>
+                                    <div class="cabin-type padding-top-30px">
+                                        @if (Model.Restaurant.MenuItems != null && Model.Restaurant.MenuItems.Any())
+                                        {
+                                            @foreach (var item in Model.Restaurant.MenuItems)
+                                            {
+                                            <form asp-action="SeeMenu" method="post">
+                                                <input type="hidden" name="MenuItemId" value="@item.Id" />
+                                                <div class="cabin-type-item seat-selection-item d-flex">
+                                                    <div class="cabin-type-img flex-shrink-0">
+                                                        <img src="@item.ImageUrl" alt="">
+                                                    </div>
+                                                    <div class="cabin-type-detail">
+                                                        <h3 class="title">@item.Name</h3>
+                                                        <div class="row padding-top-20px">
+                                                            <div class="col-lg-12 responsive-column">
+                                                                <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                                    <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
+                                                                        <i class="las la-align-justify"></i>
+                                                                    </div>
+                                                                    <div class="single-feature-titles">
+                                                                        <h3 class="title font-size-15 font-weight-medium">@Html.Raw(@item.Description)</h3>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- end col-lg-6 -->
+                                                            <div class="col-lg-6 responsive-column">
+                                                                <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                                    <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
+                                                                        <i class="las la-rupee-sign"></i>
+                                                                    </div>
+                                                                    <div class="single-feature-titles">
+                                                                        <h3 class="title font-size-15 font-weight-medium">@item.Price</h3>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- end col-lg-6 -->
+                                                            <!-- Count Input Field -->
+                                                            <div class="col-lg-6 responsive-column">
+                                                                <div class="cabin-price d-flex align-items-center">
+                                                                    <div class="input-group count-input-group">
+                                                                        <span class="input-group-text bg-primary text-white border-0 fw-semibold">Count</span>
+                                                                        <input asp-for="@Model.ShoppingCart.Count" name="Count" type="number" value="1" min="1" class="form-control text-end" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-12 responsive-column">
+                                                                <div class="single-tour-feature d-flex align-items-center mb-3">
+                                                                    <div class="single-feature-icon icon-element ml-0 flex-shrink-0 mr-2">
+                                                                        <i class="las la-hand-holding-heart"></i>
+                                                                    </div>
+                                                                    <div class="single-feature-titles">
+                                                                        <h3 class="title font-size-15 font-weight-medium">
+                                                                            @if (item.IsAvailable)
+                                                                            {
+                                                                                <span>Serving</span>
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <span>Not serving at the Moment <i class="las la-grin-beam-sweat"></i></span>
+                                                                            }
+                                                                        </h3>
+                                                                    </div>
+                                                                </div>
+                                                            </div><!-- end col-lg-6 -->
+                                                        </div><!-- end row -->
+                                                    </div>
+                                                    <div class="cabin-price">
+                                                        <div class="custom-checkbox mb-0">
+                                                            <button type="submit" class="theme-btn theme-btn-small">Add To Basket</button>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- end cabin-type-item -->
+                                            </form>
+                                                
+                                            }
                                         }
-                                    }
-                                    else
-                                    {
-                                        <div class="no-items-available text-center py-5">
-                                            <div class="icon-element mb-3">
-                                                <i class="las la-grin-beam-sweat la-3x"></i>
+                                        else
+                                        {
+                                            <div class="no-items-available text-center py-5">
+                                                <div class="icon-element mb-3">
+                                                    <i class="las la-grin-beam-sweat la-3x"></i>
+                                                </div>
+                                                <h4 class="font-size-18 font-weight-medium">No food items available right now.</h4>
+                                                <p class="font-size-14">Please check back later or contact the restaurant for more information.</p>
                                             </div>
-                                            <h4 class="font-size-18 font-weight-medium">No food items available right now.</h4>
-                                            <p class="font-size-14">Please check back later or contact the restaurant for more information.</p>
-                                        </div>
-                                    }
-                                </div><!-- end cabin-type -->
-                            </div><!-- end single-content-item -->
-                            <div class="section-block"></div>
-                        </div><!-- end location-map -->
+                                        }
+                                    </div><!-- end cabin-type -->
+                                </div><!-- end single-content-item -->
+                                <div class="section-block"></div>
+                            </div><!-- end location-map -->
+
                         <div id="amenities" class="page-scroll">
                             <div class="single-content-item padding-top-40px padding-bottom-20px">
                                 <h3 class="title font-size-20">Amenities</h3>
